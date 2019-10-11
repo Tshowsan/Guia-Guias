@@ -3,9 +3,15 @@ export class Guia {
 id: number;
 telefone: string;
 nome: string;
+sobrenome: string;
 email: string;
 senha: string;
-valor: number;
 cadastur: string;
+estado: string;
+cidade: string;
+linguas: string;
+ativo:string;
+plantão:string;
+
     
 }

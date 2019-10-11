@@ -18,28 +18,136 @@
           <ion-label position="floating">Nome</ion-label>
           <ion-input type="text" formControlName="nome"></ion-input>
         </ion-item>
+
+        <div class="error-message">
+          <ng-container *ngFor="let error of error_messages.nome">
+            <div class="error-message"
+              *ngIf="guiaCadastrarForm.get('nome').hasError(error.type) && (guiaCadastrarForm.get('nome').dirty || guiaCadastrarForm.get('nome').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label position="floating">Sobrenome</ion-label>
+            <ion-input type="text" formControlName="sobrenome"></ion-input>
+          </ion-item>
+  
+          <div class="error-message">
+            <ng-container *ngFor="let error of error_messages.sobrenome">
+              <div class="error-message"
+                *ngIf="guiaCadastrarForm.get('sobrenome').hasError(error.type) && (guiaCadastrarForm.get('sobrenome').dirty || guiaCadastrarForm.get('sobrenome').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+
         <ion-item>
             <ion-label position="floating">Email</ion-label>
             <ion-input type="text" formControlName="email"></ion-input>
           </ion-item>
+
+          <div class="error-message">
+            <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message"
+                *ngIf="guiaCadastrarForm.get('email').hasError(error.type) && (guiaCadastrarForm.get('email').dirty || guiaCadastrarForm.get('email').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+
           <ion-item>
               <ion-label position="floating" >Telefone</ion-label>
               <ion-input type="text" formControlName="telefone"></ion-input>
             </ion-item>
+
+            <div class="error-message">
+                <ng-container *ngFor="let error of error_messages.telefone">
+                  <div class="error-message"
+                    *ngIf="guiaCadastrarForm.get('telefone').hasError(error.type) && (guiaCadastrarForm.get('telefone').dirty || guiaCadastrarForm.get('telefone').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+
             <ion-item>
                 <ion-label position="floating">Senha</ion-label>
                 <ion-input type="text" formControlName="senha"></ion-input>
               </ion-item>
+
+              <div class="error-message">
+                  <ng-container *ngFor="let error of error_messages.senha">
+                    <div class="error-message"
+                      *ngIf="guiaCadastrarForm.get('senha').hasError(error.type) && (guiaCadastrarForm.get('senha').dirty || guiaCadastrarForm.get('senha').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
               <ion-item>
                   <ion-label position="floating">Cadastur</ion-label>
                   <ion-input type="text" formControlName="cadastur"></ion-input>
                 </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Valor</ion-label>
-                    <ion-input type="number" formControlName="valor"></ion-input>
-                  </ion-item>
+
+                <div class="error-message">
+                    <ng-container *ngFor="let error of error_messages.cadastur">
+                      <div class="error-message"
+                        *ngIf="guiaCadastrarForm.get('cadastur').hasError(error.type) && (guiaCadastrarForm.get('cadastur').dirty || guiaCadastrarForm.get('cadastur').touched)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-item>
+                      <ion-label position="floating">Estado</ion-label>
+                      <ion-input type="text" formControlName="estado"></ion-input>
+                    </ion-item>
+            
+                    <div class="error-message">
+                      <ng-container *ngFor="let error of error_messages.estado">
+                        <div class="error-message"
+                          *ngIf="guiaCadastrarForm.get('estado').hasError(error.type) && (guiaCadastrarForm.get('estado').dirty || guiaCadastrarForm.get('estado').touched)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+
+                    <ion-item>
+                        <ion-label position="floating">Cidade</ion-label>
+                        <ion-input type="text" formControlName="cidade"></ion-input>
+                      </ion-item>
+              
+                      <div class="error-message">
+                        <ng-container *ngFor="let error of error_messages.cidade">
+                          <div class="error-message"
+                            *ngIf="guiaCadastrarForm.get('cidade').hasError(error.type) && (guiaCadastrarForm.get('cidade').dirty || guiaCadastrarForm.get('cidade').touched)">
+                            {{ error.message }}
+                          </div>
+                        </ng-container>
+                      </div>
+
+                      <ion-item>
+                          <ion-label position="floating">Linguas</ion-label>
+                          <ion-input type="text" formControlName="linguas"></ion-input>
+                        </ion-item>
+                
+                        <div class="error-message">
+                          <ng-container *ngFor="let error of error_messages.linguas">
+                            <div class="error-message"
+                              *ngIf="guiaCadastrarForm.get('linguas').hasError(error.type) && (guiaCadastrarForm.get('linguas').dirty || guiaCadastrarForm.get('linguas').touched)">
+                              {{ error.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+
   </ion-list>
-  <ion-button type="submit" shape="round" expand="block" color="success">
+  <ion-button type="submit" shape="round" expand="block" [disabled]="!guiaCadastrarForm.valid" color="success">
       Cadastrar</ion-button>
+
+      <div style="margin-top: 20px" *ngIf="guiaCadastrarForm">
+          <div>Detalhes do form</div>
+          <pre>Form válido: {{ guiaCadastrarForm.valid }}</pre>
+          <pre>Valores: <br>{{ guiaCadastrarForm.value | json }}</pre>
+        </div>
     </form>
 </ion-content>

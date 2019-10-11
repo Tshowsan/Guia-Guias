@@ -1,7 +1,7 @@
 import { GuiaService } from './../../../services/guia.service';
 import { Guia } from './../../../models/guia';
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -16,15 +16,52 @@ export class GuiaCadastrarPage implements OnInit {
 
   @Input() guiaCadastrarForm: FormGroup;
 
+  error_messages = {
+    'nome': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'sobrenome': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'email': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'telefone': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'senha': [
+      { type: 'required', message: 'Campo Obrigatorio.' },
+      { type: 'minLength', message: 'A senha deve conter no mínimo 5 caracteres.' },
+      { type: 'maxLength', message: 'A senha deve conter no maximo 12 caracteres.' }
+    ],
+    'cadastur': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'estado': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'cidade': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+    'linguas': [
+      { type: 'required', message: 'Campo Obrigatorio.' }
+    ],
+  }
+
 
   cadastrarGuia(){
    this.guiaCadastrarForm = this.formBuilder.group({
-   nome:[null],
-   email:[null],
-   telefone:[null],
-   senha:[null],
-   cadastur:[null],
-   valor:[null]
+   nome:[ null, Validators.required],
+   sobrenome:[null, Validators.required],
+   email:[null, Validators.required],
+   telefone:[null, Validators.required],
+   senha:[null, [Validators.required, Validators.minLength(5), Validators.maxLength(12)]],
+   cadastur:[null, Validators.required],
+   estado:[null, Validators.required],
+   cidade:[null, Validators.required],
+   linguas:[null, Validators.required],
+   plantao:["false"],
+   ativo:["false"],
    });
 
   }
