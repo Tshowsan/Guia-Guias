@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title> Cadastrar Guia </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" defaultHref="home">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="guiaCadastrarForm" (ngSubmit)="onFormSubmit(guiaCadastrarForm.value)">
+  <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="nome"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating" >Telefone</ion-label>
+              <ion-input type="text" formControlName="telefone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Senha</ion-label>
+                <ion-input type="text" formControlName="senha"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label position="floating">Cadastur</ion-label>
+                  <ion-input type="text" formControlName="cadastur"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Valor</ion-label>
+                    <ion-input type="number" formControlName="valor"></ion-input>
+                  </ion-item>
+  </ion-list>
+  <ion-button type="submit" shape="round" expand="block" color="success">
+      Cadastrar</ion-button>
+    </form>
+</ion-content>
