@@ -15,16 +15,6 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Guia',
-      url: '/guia-cadastrar',
-      icon: 'home'
     }
   ];
 

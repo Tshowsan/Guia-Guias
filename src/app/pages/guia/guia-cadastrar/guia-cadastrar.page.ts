@@ -3,6 +3,7 @@ import { Guia } from './../../../models/guia';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guia-cadastrar',
@@ -66,6 +67,7 @@ export class GuiaCadastrarPage implements OnInit {
 
   }
   constructor(
+    public router: Router,
     private formBuilder: FormBuilder,
     public loadingController: LoadingController,
     public guiaService: GuiaService
@@ -73,8 +75,13 @@ export class GuiaCadastrarPage implements OnInit {
 
   ngOnInit() {
     this.cadastrarGuia();
+    
   }
+rotaTelaLogin()
+{
 
+  this.router.navigate(['/guia-login'])
+}
   async onFormSubmit(form: NgForm) {
     const loading = await this.loadingController.create({
       message: 'Carregando...'

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'guia-login',
     pathMatch: 'full'
   },
   {
@@ -15,7 +15,9 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
-  { path: 'guia-cadastrar', loadChildren: './pages/guia/guia-cadastrar/guia-cadastrar.module#GuiaCadastrarPageModule' }
+  { path: 'guia-cadastrar', loadChildren: './pages/guia/guia-cadastrar/guia-cadastrar.module#GuiaCadastrarPageModule' },
+  { path: 'guia-login', loadChildren: './pages/guia/guia-login/guia-login.module#GuiaLoginPageModule' }
+
 ];
 
 @NgModule({

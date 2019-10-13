@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-title> Cadastrar Guia </ion-title>
+    <ion-title> Cadastro </ion-title>
     <ion-buttons slot="primary">
       <ion-button color="light" defaultHref="home">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -141,13 +141,9 @@
                         </div>
 
   </ion-list>
-  <ion-button type="submit" shape="round" expand="block" [disabled]="!guiaCadastrarForm.valid" color="success">
+  <ion-button  type="submit" shape="round" expand="block" [disabled]="!guiaCadastrarForm.valid" color="success">
       Cadastrar</ion-button>
-
-      <div style="margin-top: 20px" *ngIf="guiaCadastrarForm">
-          <div>Detalhes do form</div>
-          <pre>Form válido: {{ guiaCadastrarForm.valid }}</pre>
-          <pre>Valores: <br>{{ guiaCadastrarForm.value | json }}</pre>
-        </div>
+     
+     
     </form>
 </ion-content>

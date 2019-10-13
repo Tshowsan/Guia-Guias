@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title> Login </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" (click)="dismissLogin()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+
+      <ion-item>
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="text" id="email" name="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <div class="error-message">
+        <ng-container *ngFor="let error of error_messages.email">
+          <div class="error-message"
+            *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" id="password" name="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <div class="error-message">
+        <ng-container *ngFor="let error of error_messages.password">
+          <div class="error-message"
+            *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <br>
+      <ion-button type="submit" shape="round" expand="block" color="success"(click)="rotaTelaHome()">
+        Login</ion-button>
+    </form>
+
+    <p text-center>Ainda não possui uma conta?</p>
+    <ion-button expand="full" color="tertiary" shape="round" (click)="rotaTelaCadastro()">Cadastre-se</ion-button>
+  </ion-card-content>
+</ion-content>
