@@ -3,6 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { GuiaCadastrarPage } from '../guia-cadastrar/guia-cadastrar.page';
+import { Guia } from 'src/app/models/guia';
+
+import { AlertService } from 'src/app/services/alert.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-guia-login',
@@ -11,7 +15,8 @@ import { GuiaCadastrarPage } from '../guia-cadastrar/guia-cadastrar.page';
 })
 export class GuiaLoginPage implements OnInit {
 
-
+  guia: Guia;
+ 
   
   loginForm: FormGroup;
   error_messages = {
@@ -33,6 +38,8 @@ export class GuiaLoginPage implements OnInit {
     private modalController: ModalController,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    public authService: AuthService,
+    private alertService: AlertService,
     public router: Router) 
     {
       this.loginForm = this.formBuilder.group({
@@ -68,7 +75,29 @@ export class GuiaLoginPage implements OnInit {
     return await registerModal.present();
   }
 
- 
+  // Adicionar função assíncrona para o envio do formulário de manuseio.
+  async onFormSubmit(form: NgForm) {
+    const loading = await this.loadingController.create({
+      message: 'Efetuando login...'
+    });
+    await loading.present();
+    await this.authService.login(form)
+      .subscribe(data => {
+        loading.dismiss(); // apagar a mensagem de Efetuando login...
+        if ((data != null) && (data['id'] > 0)) {
+          this.alertService.presentToast("Logado com sucesso!");
+          this.dismissLogin();
+          this.router.navigate([ 'home' ]);
+        } else {
+          this.alertService.presentToast("Login/senha incorretos.");
+        }
+
+      }, (erro) => {
+        console.log(erro);
+        loading.dismiss();
+      });
+  }
+
 
   //metodo que faz a nevagação entre as telas de login para cadastro
   rotaTelaCadastro(){

@@ -22,6 +22,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GuiaLoginPage]
+  declarations: [GuiaLoginPage],
+  exports: [GuiaLoginPage],
+  entryComponents: [GuiaLoginPage]
 })
 export class GuiaLoginPageModule {}
