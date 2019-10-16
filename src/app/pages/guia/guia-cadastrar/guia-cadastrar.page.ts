@@ -52,7 +52,7 @@ export class GuiaCadastrarPage implements OnInit {
 
   cadastrarGuia(){
    this.guiaCadastrarForm = this.formBuilder.group({
-   nome:[ null, Validators.required],
+   nome:[null, Validators.required],
    sobrenome:[null, Validators.required],
    email:[null, Validators.required],
    telefone:[null, Validators.required],

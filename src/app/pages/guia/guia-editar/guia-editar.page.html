@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title> Cadastro </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" defaultHref="home"(click)="rotaTelaLogin()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="guiaEditarForm" (ngSubmit)="onFormSubmit(guiaEditarForm.value)">
+
+  <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="nome"></ion-input>
+        </ion-item>
+
+        <div class="error-message">
+          <ng-container *ngFor="let error of error_messages.nome">
+            <div class="error-message"
+              *ngIf="guiaEditarForm.get('nome').hasError(error.type) && (guiaEditarForm.get('nome').dirty || guiaEditarForm.get('nome').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label position="floating">Sobrenome</ion-label>
+            <ion-input type="text" formControlName="sobrenome"></ion-input>
+          </ion-item>
+  
+          <div class="error-message">
+            <ng-container *ngFor="let error of error_messages.sobrenome">
+              <div class="error-message"
+                *ngIf="guiaEditarForm.get('sobrenome').hasError(error.type) && (guiaEditarForm.get('sobrenome').dirty || guiaEditarForm.get('sobrenome').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+
+          <div class="error-message">
+            <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message"
+                *ngIf="guiaEditarForm.get('email').hasError(error.type) && (guiaEditarForm.get('email').dirty || guiaEditarForm.get('email').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item>
+              <ion-label position="floating" >Telefone</ion-label>
+              <ion-input type="text" formControlName="telefone"></ion-input>
+            </ion-item>
+
+            <div class="error-message">
+                <ng-container *ngFor="let error of error_messages.telefone">
+                  <div class="error-message"
+                    *ngIf="guiaEditarForm.get('telefone').hasError(error.type) && (guiaEditarForm.get('telefone').dirty || guiaEditarForm.get('telefone').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+            <ion-item>
+                <ion-label position="floating">Senha</ion-label>
+                <ion-input type="text" formControlName="senha"></ion-input>
+              </ion-item>
+
+              <div class="error-message">
+                  <ng-container *ngFor="let error of error_messages.senha">
+                    <div class="error-message"
+                      *ngIf="guiaEditarForm.get('senha').hasError(error.type) && (guiaEditarForm.get('senha').dirty || guiaEditarForm.get('senha').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+              <ion-item>
+                  <ion-label position="floating">Cadastur</ion-label>
+                  <ion-input type="text" formControlName="cadastur"></ion-input>
+                </ion-item>
+
+                <div class="error-message">
+                    <ng-container *ngFor="let error of error_messages.cadastur">
+                      <div class="error-message"
+                        *ngIf="guiaEditarForm.get('cadastur').hasError(error.type) && (guiaEditarForm.get('cadastur').dirty || guiaEditarForm.get('cadastur').touched)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-item>
+                      <ion-label position="floating">Estado</ion-label>
+                      <ion-input type="text" formControlName="estado"></ion-input>
+                    </ion-item>
+            
+                    <div class="error-message">
+                      <ng-container *ngFor="let error of error_messages.estado">
+                        <div class="error-message"
+                          *ngIf="guiaEditarForm.get('estado').hasError(error.type) && (guiaEditarForm.get('estado').dirty || guiaEditarForm.get('estado').touched)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+
+                    <ion-item>
+                        <ion-label position="floating">Cidade</ion-label>
+                        <ion-input type="text" formControlName="cidade"></ion-input>
+                      </ion-item>
+              
+                      <div class="error-message">
+                        <ng-container *ngFor="let error of error_messages.cidade">
+                          <div class="error-message"
+                            *ngIf="guiaEditarForm.get('cidade').hasError(error.type) && (guiaEditarForm.get('cidade').dirty || guiaEditarForm.get('cidade').touched)">
+                            {{ error.message }}
+                          </div>
+                        </ng-container>
+                      </div>
+
+                      <ion-item>
+                          <ion-label position="floating">Linguas</ion-label>
+                          <ion-input type="text" formControlName="linguas"></ion-input>
+                        </ion-item>
+                
+                        <div class="error-message">
+                          <ng-container *ngFor="let error of error_messages.linguas">
+                            <div class="error-message"
+                              *ngIf="guiaEditarForm.get('linguas').hasError(error.type) && (guiaEditarForm.get('linguas').dirty || guiaEditarForm.get('linguas').touched)">
+                              {{ error.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+
+  </ion-list>
+  <ion-button  type="submit" shape="round" expand="block" [disabled]="!guiaEditarForm.valid" color="success">
+      Atualizar</ion-button>
+
+      <ion-button shape="round" expand="block" (click)="getGuiaPorId(3)">
+        Atualizar Dados</ion-button>
+
+        <ion-button shape="round" expand="block" (click)="addDadosForm()">
+          Listar Dados</ion-button>
+     
+     
+    </form>
+
+    
+</ion-content>

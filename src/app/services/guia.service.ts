@@ -43,15 +43,15 @@ export class GuiaService {
     const url = `${this.apiService.API_URL + 'guia'}/${id}`;
     return this.http.get<Guia>(url, httpOptions)
     .pipe(
-      tap(vermifugo => console.log(`fetched guia id=${id}`)),
+      tap(guia => console.log(`fetched guia id=${id}`)),
       catchError(this.handleError<Guia>(`getGuiaById id=${id}`))
         
       
     )
   }  
 
-  putGuia(id: number, guia): Observable<any> {
-    const url = `${this.apiService.API_URL + 'guia'}/${id}`;
+  putGuia(guia): Observable<any> {
+    const url = `${this.apiService.API_URL + 'guia'}`;
     return this.http.put(url, guia, httpOptions)
   }
   

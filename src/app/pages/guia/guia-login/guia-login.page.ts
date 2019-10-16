@@ -34,7 +34,8 @@ export class GuiaLoginPage implements OnInit {
   }
 
 //passando no construtor o router pra poder traçar a rota 
-  constructor(public loadingController: LoadingController,
+  constructor(
+    public loadingController: LoadingController,
     private modalController: ModalController,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,

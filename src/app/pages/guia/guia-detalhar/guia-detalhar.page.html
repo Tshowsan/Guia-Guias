@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title> Cadastro </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" defaultHref="home"(click)="rotaTelaLogin()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="guiaDetalharForm" (ngSubmit)="onFormSubmit(guiaDetalharForm.value)">
+
+  <ion-list>
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="nome" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Sobrenome</ion-label>
+            <ion-input type="text" formControlName="sobrenome" disabled="true"></ion-input>
+          </ion-item>
+  
+
+
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="email" disabled="true"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+              <ion-label position="floating" >Telefone</ion-label>
+              <ion-input type="text" formControlName="telefone" disabled="true"></ion-input>
+            </ion-item>
+
+
+              <ion-item>
+                  <ion-label position="floating">Cadastur</ion-label>
+                  <ion-input type="text" formControlName="cadastur" disabled="true"></ion-input>
+                </ion-item>
+
+        
+
+                  <ion-item>
+                      <ion-label position="floating">Estado</ion-label>
+                      <ion-input type="text" formControlName="estado" disabled="true"></ion-input>
+                    </ion-item>
+            
+     
+
+                    <ion-item>
+                        <ion-label position="floating">Cidade</ion-label>
+                        <ion-input type="text" formControlName="cidade" disabled="true"></ion-input>
+                      </ion-item>
+              
+
+
+                      <ion-item>
+                          <ion-label position="floating">Linguas</ion-label>
+                          <ion-input type="text" formControlName="linguas" disabled="true"></ion-input>
+                        </ion-item>
+
+  </ion-list>         
+    </form>
+
+    
+</ion-content>

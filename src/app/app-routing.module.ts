@@ -16,7 +16,9 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   { path: 'guia-cadastrar', loadChildren: './pages/guia/guia-cadastrar/guia-cadastrar.module#GuiaCadastrarPageModule' },
-  { path: 'guia-login', loadChildren: './pages/guia/guia-login/guia-login.module#GuiaLoginPageModule' }
+  { path: 'guia-login', loadChildren: './pages/guia/guia-login/guia-login.module#GuiaLoginPageModule' },  { path: 'guia-editar', loadChildren: './pages/guia/guia-editar/guia-editar.module#GuiaEditarPageModule' },
+  { path: 'guia-detalhar', loadChildren: './pages/guia/guia-detalhar/guia-detalhar.module#GuiaDetalharPageModule' }
+
 
 ];
 

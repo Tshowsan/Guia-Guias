@@ -31,7 +31,7 @@ export class AuthService {
 
   login(user) {
     return this.http.post(
-      this.apiService.API_URL + 'guia/efetuarLogin', // URL
+      this.apiService.API_URL + 'guia/efetuarLogin',    // URL
       user,                                             // Objeto
       httpOptions                                       // Headers
     ).pipe(

@@ -15,7 +15,18 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
+    },
+    {
+      title: 'Teste Editar',
+      url: '/guia-editar',
+      icon: 'home'
+    },
+    {
+      title: 'Teste Detalhar',
+      url: '/guia-detalhar',
+      icon: 'home'
     }
+
   ];
 
   constructor(

@@ -11,7 +11,7 @@ estado: string;
 cidade: string;
 linguas: string;
 ativo:string;
-plantão:string;
+plantao:string;
 
     
 }
